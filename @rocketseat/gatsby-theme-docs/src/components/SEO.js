@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import urljoin from 'url-join';
 import { useStaticQuery, graphql } from 'gatsby';
-import { GatsbySeo } from "gatsby-plugin-next-seo"
+import { GatsbySeo } from 'gatsby-plugin-next-seo';
 
 export default function SEO({ description, title, slug, image, children }) {
   const { site } = useStaticQuery(

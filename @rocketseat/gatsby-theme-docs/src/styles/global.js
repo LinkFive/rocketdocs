@@ -50,14 +50,14 @@ export default function GlobalStyle() {
         h6 {
           color: ${theme.colors.title};
 
-          margin: 24px 0 16px 0;
+          margin: 48px 0 16px 0;
           font-weight: bold;
         }
 
         p {
           color: ${theme.colors.text};
           font-size: 16px;
-          line-height: 28px;
+          line-height: 32px;
           margin-bottom: 16px;
           font-weight: 400;
         }
@@ -93,6 +93,7 @@ export default function GlobalStyle() {
         }
 
         blockquote {
+          margin-top: 32px;
           margin-bottom: 16px;
           width: 100%;
 
@@ -169,7 +170,7 @@ export default function GlobalStyle() {
           margin-bottom: 16px;
 
           li {
-            line-height: 28px;
+            line-height: 32px;
           }
         }
 
@@ -183,6 +184,9 @@ export default function GlobalStyle() {
             'Liberation Mono', 'Courier New', monospace;
           font-variant: no-common-ligatures no-discretionary-ligatures
             no-historical-ligatures no-contextual;
+
+          margin-top: 32px;
+          margin-bottom: 32px;
 
           position: relative;
           z-index: 0;
