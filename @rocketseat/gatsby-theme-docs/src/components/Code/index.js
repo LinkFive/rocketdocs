@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Highlight, { defaultProps } from 'prism-react-renderer';
+import Prism from 'prism-react-renderer/prism';
 import rangeParser from 'parse-numeric-range';
 import theme from 'prism-react-renderer/themes/dracula';
 import { LiveProvider, LiveEditor } from 'react-live';
@@ -17,6 +18,9 @@ import {
   LiveError,
   StyledEditor,
 } from './styles';
+
+(typeof global !== 'undefined' ? global : window).Prism = Prism;
+require('prismjs/components/prism-dart');
 
 const calculateLinesToHighlight = (meta) => {
   const RE = /{([\d,-]+)}/;
@@ -63,7 +67,6 @@ export default function CodeHighlight({
       >
         <LiveWrapper>
           <LivePreview />
-
           <StyledEditor>
             <CopyCode onClick={handleClick} disabled={copied} hasTitle>
               {copied ? 'Copied!' : 'Copy'}
@@ -77,13 +80,13 @@ export default function CodeHighlight({
       </LiveProvider>
     );
   }
-
   return (
     <>
       {title && <PreHeader>{title}</PreHeader>}
       <div className="gatsby-highlight">
         <Highlight
           {...defaultProps}
+          Prism={Prism}
           code={codeString}
           language={language}
           theme={theme}
