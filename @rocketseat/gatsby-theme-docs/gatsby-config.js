@@ -23,7 +23,7 @@ module.exports = (options) => {
       },
       `gatsby-plugin-catch-links`,
       `gatsby-plugin-emotion`,
-      `gatsby-plugin-react-helmet`,
+      'gatsby-plugin-next-seo',
     ].filter(Boolean),
   };
 };

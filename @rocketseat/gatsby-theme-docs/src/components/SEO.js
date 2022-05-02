@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
 import urljoin from 'url-join';
 import { useStaticQuery, graphql } from 'gatsby';
+import { GatsbySeo } from 'gatsby-plugin-next-seo/src/meta/gatsby-seo';
 
 export default function SEO({ description, title, slug, image, children }) {
   const { site } = useStaticQuery(
@@ -52,23 +52,42 @@ export default function SEO({ description, title, slug, image, children }) {
   ];
 
   return (
-    <Helmet
+    <>
+      <GatsbySeo
+        lang='en'
+        title={metaTitle}
+        description={metaDescription}
+        metaDescription={metaDescription}
+        metaTags={[
+          {
+            property: 'image',
+            content: metaImage,
+          },
+          {
+            property: 'x-ua-compatible',
+            content: metaDescription,
+          },
+          {
+            property: 'MobileOptimized',
+            content: "320",
+          },
+          {
+            property: 'HandheldFriendly',
+            content: "True",
+          },
+          {
+            property: 'google',
+            content: "notranslate",
+          }]}
+      />
+      {/*<Helmet
       htmlAttributes={{
         lang: siteLanguage,
       }}
       title={metaTitle}
     >
-      {siteIcon && <link rel="icon" href={siteIcon} />}
-      <meta name="description" content={metaDescription} />
-      <meta name="image" content={metaImage} />
-
-      <meta httpEquiv="x-ua-compatible" content="IE=edge,chrome=1" />
-      <meta name="MobileOptimized" content="320" />
-      <meta name="HandheldFriendly" content="True" />
-      <meta name="google" content="notranslate" />
       <meta name="referrer" content="no-referrer-when-downgrade" />
 
-      <meta property="og:url" content={metaUrl} />
       <meta property="og:type" content="website" />
       <meta property="og:title" content={metaTitle} />
       <meta property="og:description" content={metaDescription} />
@@ -95,7 +114,8 @@ export default function SEO({ description, title, slug, image, children }) {
         {JSON.stringify(schemaOrgJSONLD)}
       </script>
       {children}
-    </Helmet>
+    </Helmet>*/}
+    </>
   );
 }
 
